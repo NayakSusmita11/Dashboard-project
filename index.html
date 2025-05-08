@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login Page -->
+  <div class="login-page" id="loginPage">
+    <div class="login-box">
+      <h2>Campus Dashboard Login</h2>
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="password" id="password" placeholder="Enter password" required />
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <!-- Dashboard Page -->
+  <div class="container" id="dashboardPage" style="display: none">
+    <aside class="sidebar">
+      <button onclick="showSection('overview')">Dashboard</button>
+      <button onclick="showSection('add-expense')">Add Expense</button>
+      <button onclick="showSection('manage-admins')">Manage Admins</button>
+      <button onclick="showSection('reward-sheet')">Reward Sheet</button>
+      <button onclick="logout()">Logout</button>
+    </aside>
+
+    <!-- Overview Section -->
+    <main class="main-content active" id="overview">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/NavGurukul_Logo.png" alt="Navgurukul" />
+      </div>
+      <h2>Dashboard Overview</h2>
+      <div class="overview-cards">
+        <div class="card"><h3>Total Campuses</h3><p>9</p></div>
+        <div class="card"><h3>Total Points</h3><p>0</p></div>
+        <div class="card"><h3>Total Expenses</h3><p>0.00</p></div>
+      </div>
+
+      <h3>Student Points Table</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Campus</th><th>House</th><th>Academic</th><th>Culture</th><th>Total</th><th>Key Contributions</th>
+            </tr>
+          </thead>
+          <tbody id="pointsTableBody">
+            <tr><td>Bangalore</td><td>Malhar</td><td>1000</td><td>700</td><td>1700</td><td>Reward(+25)</td></tr>
+            <!-- more rows -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Add Expense Section -->
+    <main class="main-content" id="add-expense">
+      <h2>Add Campus Expense</h2>
+      <form id="expenseForm" class="form-grid">
+        <label>Campus:
+          <select id="campus">
+            <option>Sarjapura</option>
+            <option>Pune</option>
+            <option>Dantewada</option>
+            <option>Udaipur</option>
+            <option>Raipur</option>
+            <option>Jashpur</option>
+            <option> Dharmshala </option>
+            <option>Kishanganj</option>
+            <!-- more campuses -->
+          </select>
+        </label>
+        <label>House:
+          <select id="house">
+            <option>Malhar</option>
+            <option>Bhairav</option>
+            <option>Bageshree</option>
+          </select>
+        </label>
+        <label>Points:
+          <input type="number" id="points" value="0" />
+        </label>
+        <label>Type:
+          <select id="type">
+            <option>Reward</option>
+            <option>Consequence</option>
+          </select>
+        </label>
+        <label>Amount:
+          <input type="number" id="amount" value="0" />
+        </label>
+        <label>Date:
+          <input type="date" id="date" />
+        </label>
+        <button type="submit">Add Expense</button>
+      </form>
+    </main>
+
+    <!-- Manage Admins Section -->
+    <main class="main-content" id="manage-admins">
+      <h2>Manage Admins</h2>
+      <form id="adminForm">
+        <input type="text" id="adminName" placeholder="Admin Name" required />
+        <button type="submit">Add Admin</button>
+      </form>
+      <h3>Current Admins</h3>
+      <ul id="adminList"></ul>
+    </main>
+
+    <!-- Reward Sheet Section -->
+    <main class="main-content" id="reward-sheet">
+      <h2>Reward Sheet</h2>
+      <p>Graphs and level filters will go here. (To be implemented)</p>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+      
